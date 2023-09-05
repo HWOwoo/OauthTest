@@ -4,6 +4,8 @@ import com.oauth2.demo.jwt.service.JwtService;
 import com.oauth2.demo.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
+import org.springframework.security.core.authority.mapping.NullAuthoritiesMapper;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 @Slf4j
@@ -15,6 +17,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserRepository userRepository;
 
-    private
+    private GrantedAuthoritiesMapper authoritiesMapper = new NullAuthoritiesMapper(); // 권한을 매핑하는 객체
+
 
 }
